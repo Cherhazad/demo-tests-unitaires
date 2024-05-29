@@ -20,6 +20,11 @@ public class Maison {
 	 * @param nvPiece nouvelle pièce à ajouter
 	 */
 	public void ajouterPiece(Piece nvPiece) {
+		if (nvPiece == null || nvPiece.getSuperficie() <= 0) {
+			return; // sort de la méthode et ne poursuit pas
+		}
+		
+		// 2nde façon : if (nvPiece != null) { mettre tout le code dedans }
 		
 		// On est obligé d'agrandir le tableau initial de 1 à chaque ajout
 		// d'une nouvelle pièce
@@ -42,7 +47,7 @@ public class Maison {
 	}
 	
 	public int nbPieces() {
-		return pieces.length-1;
+		return pieces.length;
 	}
 
 	/** Retourne la superficie d'un étage
@@ -54,7 +59,7 @@ public class Maison {
 
 		for (int i = 0; i < pieces.length; i++) {
 			if (choixEtage == this.pieces[i].getNumEtage()) {
-				superficieEtage = this.pieces[i].getSuperficie();
+				superficieEtage += this.pieces[i].getSuperficie();
 			}
 		}
 
@@ -68,9 +73,9 @@ public class Maison {
 	public double superficieTypePiece(String typePiece) {
 		double superficie = 0;
 
-		for (int i = 1; i < pieces.length; i++) {
-			if (typePiece!=null && typePiece.equals(this.pieces[i].getType())) {
-				superficie = superficie + this.pieces[i].getSuperficie();
+		for (int i = 0; i < pieces.length; i++) {
+			if (typePiece!=null && typePiece == this.pieces[i].getType()) {
+				superficie += this.pieces[i].getSuperficie();
 			}
 		}
 
@@ -84,7 +89,7 @@ public class Maison {
 		double superficieTot = 0;
 
 		for (int i = 0; i < pieces.length; i++) {
-			superficieTot = superficieTot + this.pieces[i].getSuperficie();
+			superficieTot += this.pieces[i].getSuperficie();
 		}
 
 		return superficieTot;
