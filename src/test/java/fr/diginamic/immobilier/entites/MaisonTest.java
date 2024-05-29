@@ -97,6 +97,7 @@ class MaisonTest {
 		assertEquals(33.56, palace.superficieTypePiece("Chambre"));
 		
 	}
+	
 
 	@Test
 	void testCalculerSurface() {
