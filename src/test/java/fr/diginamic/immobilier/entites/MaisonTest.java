@@ -91,7 +91,7 @@ class MaisonTest {
 		palace.ajouterPiece(chambre2);
 		palace.ajouterPiece(cuisine1);
 		palace.ajouterPiece(sdb1);
-		palace.ajouterPiece(salon1);
+		palace.ajouterPiece(salon1) ;
 		palace.ajouterPiece(wc1);
 		
 		assertEquals(33.56, palace.superficieTypePiece("Chambre"));
